@@ -97,8 +97,6 @@ python evaluate.py
 # Saves: results/reconstructions.png, results/generated.png, results/training_loss.png
 ```
 
-**Note on reproducibility**: The train/validation split is seeded (`torch.Generator().manual_seed(42)`), but model weight initialization and per-epoch data shuffling are not globally seeded. Reproduced FID should land close to 21.31, but exact bit-for-bit reproduction of the saved weights is not guaranteed.
-
 ## Notes
 
 - MNIST is downloaded automatically via `torchvision.datasets.MNIST` and excluded from version control (`.gitignore`).
