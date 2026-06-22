@@ -56,6 +56,18 @@ Samples drawn from the prior z ~ N(0, I) and passed through the decoder show the
 ├── losses.json                # Per-epoch train/val loss history
 
 └── requirements.txt
+
+## Requirements
+
+```
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
+matplotlib==3.10.9
+torchmetrics==1.9.0
+torch-fidelity==0.4.0
+tqdm==4.67.3
+```
+
 ## Setup
 
 ```bash
@@ -68,7 +80,10 @@ python -m venv venv
 venv\Scripts\activate        # Windows
 # source venv/bin/activate   # macOS/Linux
 
-# Install dependencies
+# Install PyTorch with CUDA support (required for GPU training)
+pip install torch==2.5.1+cu121 torchvision==0.20.1+cu121 --index-url https://download.pytorch.org/whl/cu121
+
+# Install remaining dependencies
 pip install -r requirements.txt
 ```
 
@@ -94,4 +109,3 @@ python evaluate.py
 ## Notes
 
 - MNIST is downloaded automatically via `torchvision.datasets.MNIST` and excluded from version control (`.gitignore`).
-- This repository is part of a broader comparative study of generative models on MNIST (MLP-VAE, CNN-VAE, and DDPM), evaluating generation quality, architectural trade-offs, and speed vs. fidelity across model families.
