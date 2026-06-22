@@ -23,7 +23,7 @@ A Convolutional Variational Autoencoder (VAE) implemented from scratch in PyTorc
 | Optimizer | Adam, lr 1e-3, batch size 128 |
 | Latent dimension | 20 |
 
-For context, an MLP-based VAE baseline trained under identical conditions achieved FID 39.37 — the CNN architecture's spatial feature preservation roughly halves the FID.
+For context, an MLP-based VAE baseline trained under identical conditions achieved FID 39.37, and a DDPM trained on the same data achieved FID 5.48 — the CNN VAE's spatial feature preservation improves substantially on the MLP baseline but does not close the gap to iterative diffusion-based generation.
 
 ### Reconstructions
 ![Reconstructions](results/reconstructions.png)
@@ -43,9 +43,9 @@ Samples drawn from the prior z ~ N(0, I) and passed through the decoder show the
 
 ├── train.py                 # Training/validation loop
 
-├── evaluate.py               # FID score computation
+├── fid_score.py               # FID score computation
 
-├── fid_score.py               # Visualizations (reconstructions, samples, loss curve)
+├── evaluate.py                # Visualizations (reconstructions, samples, loss curve)
 
 ├── results/                  # Generated plots and images
 
@@ -80,12 +80,12 @@ python train.py
 # Saves: best_vae_weights.pth, final_vae_weights.pth, losses.json
 
 # 2. Compute FID score against the held-out test set
-python evaluate.py
+python fid_score.py
 # Saves: results/fid_score.json
 # Expected: FID ≈ 21.31
 
 # 3. Generate visualizations (reconstructions, samples, loss curve)
-python fid_score.py
+python evaluate.py
 # Saves: results/reconstructions.png, results/generated.png, results/training_loss.png
 ```
 
