@@ -39,23 +39,16 @@ Samples drawn from the prior z ~ N(0, I) and passed through the decoder show the
 ![Loss](results/training_loss.png)
 
 ## Project Structure
-├── model.py                 # Encoder, Decoder, VAE classes
 
-├── train.py                 # Training/validation loop
-
-├── fid_score.py               # FID score computation
-
-├── evaluate.py                # Visualizations (reconstructions, samples, loss curve)
-
-├── results/                  # Generated plots and images
-
-├── best_vae_weights.pth      # Best checkpoint (epoch 93, lowest val loss)
-
-├── final_vae_weights.pth     # Final epoch checkpoint
-
-├── losses.json                # Per-epoch train/val loss history
-
-└── requirements.txt
+- `model.py` — Encoder, Decoder, VAE classes
+- `train.py` — Training/validation loop
+- `fid_score.py` — FID score computation
+- `evaluate.py` — Visualizations (reconstructions, samples, loss curve)
+- `results/` — Generated plots and images
+- `best_vae_weights.pth` — Best checkpoint (epoch 93, lowest val loss)
+- `final_vae_weights.pth` — Final epoch checkpoint
+- `losses.json` — Per-epoch train/val loss history
+- `requirements.txt` — Python dependencies
 
 ## Requirements
 
