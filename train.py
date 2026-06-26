@@ -19,8 +19,6 @@ full_train_dataset = datasets.MNIST(
     transform=transform
 )
 
-# split 60,000 into 80% train / 20% val (48,000 / 12,000)
-# using a fixed generator for reproducibility
 train_size = int(0.8 * len(full_train_dataset))
 val_size = len(full_train_dataset) - train_size
 train_dataset, val_dataset = random_split(
